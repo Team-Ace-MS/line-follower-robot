@@ -10,7 +10,7 @@ Welcome to the primary development hub for our high-speed autonomous Line Follow
 * **Voltage Regulator:** LM2596 Buck Converter
 * **Sensor Array:** QRE1113 16-Sensor Matrix with Multiplexed Reading Logic
 * **UI for User Control:** Adafruit SSD1306 I2C 128X64 OLED display
-* **Motors:** 600 RPM 12V GA12-N20 Gear Motors with Magnetic Hall Encoders
+* **Motors:** 800 RPM 12V GA12-N20 Gear Motors with Magnetic Hall Encoders
 * **Hardware Framework:** PCB, 3D Printed Chassis, Fiberglass Veroboard
 * **Firmware Framework:** C++ / Arduino Engine
 * **Control Frequency:** 1000Hz Hardware Timer Interrupt
