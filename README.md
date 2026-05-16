@@ -6,9 +6,14 @@ Welcome to the primary development hub for our high-speed autonomous Line Follow
 
 ## 🛠️ System Specifications & Tech Stack
 * **Core Controller:** Raspberry Pi Pico 2 (RP2350 Architecture)
-* **Firmware Framework:** C++ / Arduino Engine
-* **Control Frequency:** 800Hz Hardware Timer Interrupt
+* **Motor Driver:** Dual Channel TB6612FNG
+* **Voltage Regulator:** LM2596 Buck Converter
 * **Sensor Array:** QRE1113 16-Sensor Matrix with Multiplexed Reading Logic
+* **UI for User Control:** Adafruit SSD1306 I2C 128X64 OLED display
+* **Motors:** 800 RPM GA12-N20 Gear Motors
+* **Hardware Framework:** PCB, 3D Printed Chassis, Fiberglass Veroboard
+* **Firmware Framework:** C++ / Arduino Engine
+* **Control Frequency:** 1000Hz Hardware Timer Interrupt
 * **Hardware Design EDA:** KiCad, EasyEDA
 
 ---
@@ -29,6 +34,8 @@ graph TD
     Start([Power On]) --> Init[Initialize Peripherals & Callibrate Sensors]
     Init --> Read[Mux Array: Scan 16 Sensors]
     Read --> Calc[Compute Position Error Vector]
-    Calc --> PID[Execute 800Hz PID Algorithim]
+    Calc --> PID[Execute 1000Hz PID Algorithim]
     PID --> Drive[Adjust Left/Right Motor PWM Output]
-    Drive --> Read
+    Drive --> Update[OLED Display and Time Counters]
+    Update --> Read
+    Drive --> End[End When Solid Black Box]
