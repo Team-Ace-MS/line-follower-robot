@@ -41,5 +41,6 @@ graph TD
     Cross --> Drive
     Drive --> Update[OLED Display and Time Counters]
     Update --> Run
+    Run --> Update
     Update --> Read
     Drive --> End[End When Solid Black Box]
