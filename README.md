@@ -36,6 +36,8 @@ graph TD
     Read --> Calc[Compute Position Error Vector]
     Calc --> PID[Execute 1000Hz PID Algorithim]
     PID --> Drive[Adjust Left/Right Motor PWM Output]
+    PID --> Cross[non-PID Path Logic Override]
+    Cross --> Drive
     Drive --> Update[OLED Display and Time Counters]
     Update --> Read
     Drive --> End[End When Solid Black Box]
