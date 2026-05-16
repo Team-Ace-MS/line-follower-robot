@@ -32,12 +32,14 @@ This logic loop is hardcoded to run via interrupts to ensure absolute predictabi
 ```mermaid
 graph TD
     Start([Power On]) --> Init[Initialize Peripherals & Callibrate Sensors]
-    Init --> Read[Mux Array: Scan 16 Sensors]
+    Init --> Run[Run Logic]
+    Run --> Read[Mux Array: Scan 16 Sensors]
     Read --> Calc[Compute Position Error Vector]
     Calc --> PID[Execute 1000Hz PID Algorithim]
     PID --> Drive[Adjust Left/Right Motor PWM Output]
     PID --> Cross[non-PID Path Logic Override]
     Cross --> Drive
     Drive --> Update[OLED Display and Time Counters]
+    Update --> Run
     Update --> Read
     Drive --> End[End When Solid Black Box]
