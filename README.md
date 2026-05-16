@@ -31,4 +31,4 @@ graph TD
     Read --> Calc[Compute Position Error Vector]
     Calc --> PID[Execute 800Hz PID Algorithim]
     PID --> Drive[Adjust Left/Right Motor PWM Output]
-    Drive --> Init
+    Drive --> Read
